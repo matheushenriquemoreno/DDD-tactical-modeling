@@ -1,7 +1,11 @@
+import Address from "./ValueObjects/address";
+
+
 // Entidade Anemica
 // essa entidade está somente armazenando dados
 // DTO -> essa entidade criada parece com um DTO, devido a não ter regra de negocio.
 // o motivo dessa abordagem e muito utilizada devido a classe ser orientada a ORM.
+
 
 // ja o DDD visa a entidade manipular todo o corração da aplicação, visando uma modelagem de dominio rico 
 
@@ -53,7 +57,7 @@ class CustomerAnemica {
 export class Customer {
     _id: string;
     _name: string;
-    _addres: string = "";
+    _address?: Address;
     _active: boolean = false;
 
     constructor(id: string, name: string) {
@@ -77,7 +81,7 @@ export class Customer {
     }
    
     activate() {
-        if (this._addres.length === 0) {
+        if (this._address) {
             throw new Error("Adrress is mandatory to activate a customer!");
         }
 
@@ -86,6 +90,10 @@ export class Customer {
 
     deactivate() {
         this._active = false;
+    }
+
+    set Address(address: Address){
+        this._address = address;
     }
 }
 
