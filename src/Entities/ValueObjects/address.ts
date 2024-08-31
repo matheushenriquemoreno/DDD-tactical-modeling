@@ -1,6 +1,6 @@
 // uma caracterisca de um objeto de valor, e que ele não pode ser alteravel, ele deve ser imutavel
 // em caso de troca deve descartar o antigo e criar um novo.
-// também não possui indentificado.
+// também não possui indentificador.
 
 
 export default class Address {

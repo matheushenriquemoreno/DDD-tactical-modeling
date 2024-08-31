@@ -1,4 +1,5 @@
 import Address from "./ValueObjects/address";
+import { CPF } from "./ValueObjects/cpf";
 
 
 // Entidade Anemica
@@ -59,8 +60,10 @@ export class Customer {
     _name: string;
     _address?: Address;
     _active: boolean = false;
+    _cpf: CPF;
 
-    constructor(id: string, name: string) {
+    constructor(id: string, name: string, cpf: string) {
+        this._cpf = new CPF(cpf);
         this._id = id;
         this._name = name;
         this.validate();
@@ -81,7 +84,7 @@ export class Customer {
     }
    
     activate() {
-        if (this._address) {
+        if (!this._address) {
             throw new Error("Adrress is mandatory to activate a customer!");
         }
 
@@ -94,6 +97,10 @@ export class Customer {
 
     set Address(address: Address){
         this._address = address;
+    }
+
+    getCPF(){
+        this._cpf;
     }
 }
 
