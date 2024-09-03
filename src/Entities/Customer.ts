@@ -56,11 +56,11 @@ class CustomerAnemica {
 
 // modelagem rica, expressando regras de negocio.
 export class Customer {
-    _id: string;
-    _name: string;
-    _address?: Address;
-    _active: boolean = false;
-    _cpf: CPF;
+    private _id: string;
+    private _name: string;
+    private _address?: Address;
+    private _active: boolean = false;
+    private _cpf: CPF;
 
     constructor(id: string, name: string, cpf: string) {
         this._cpf = new CPF(cpf);
@@ -95,8 +95,16 @@ export class Customer {
         this._active = false;
     }
 
+    isActive(){
+        return this._active;
+    }
+
     set Address(address: Address){
         this._address = address;
+    }
+
+    get Name() : string{
+        return this._name;
     }
 
     getCPF(){
