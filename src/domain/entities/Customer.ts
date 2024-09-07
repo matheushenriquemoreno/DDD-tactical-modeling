@@ -61,12 +61,33 @@ export class Customer {
     private _address?: Address;
     private _active: boolean = false;
     private _cpf: CPF;
+    private _rewardPoints = 0;
 
     constructor(id: string, name: string, cpf: string) {
         this._cpf = new CPF(cpf);
         this._id = id;
         this._name = name;
         this.validate();
+    }
+
+    set Address(address: Address){
+        this._address = address;
+    }
+
+    get Name() : string{
+        return this._name;
+    }
+
+    get id(){
+        return this._id;
+    }
+
+    get CPF() : CPF{
+        return this._cpf;
+    }
+
+    get rewardPoints() : number{
+       return this._rewardPoints;
     }
 
     validate() {
@@ -99,16 +120,12 @@ export class Customer {
         return this._active;
     }
 
-    set Address(address: Address){
-        this._address = address;
+    addRewardPoints(points: number){
+        this._rewardPoints += points;
     }
 
-    get Name() : string{
-        return this._name;
-    }
-
-    getCPF(){
-        this._cpf;
+    spendRewardPoints(points: number){
+        this._rewardPoints -= points;
     }
 }
 

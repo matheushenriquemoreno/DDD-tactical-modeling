@@ -1,8 +1,8 @@
-import { Customer } from "./Entities/Customer";
-import Order from "./Entities/Order";
+import { Customer } from "./domain/entities/Customer";
+import Order from "./domain/entities/Order";
 
-import OrderItem from "./Entities/OrderItem";
-import Address from "./Entities/ValueObjects/address";
+import OrderItem from "./domain/entities/OrderItem";
+import Address from "./domain/entities/ValueObjects/address";
 
 let customer = new Customer("123", "Matheus", "12345678910");
 

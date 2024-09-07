@@ -1,3 +1,4 @@
+import getId from "../../../helpers/getId";
 import { Customer } from "../Customer";
 import Address from "../ValueObjects/address";
 
@@ -53,5 +54,20 @@ describe("Customer unit Testes", () => {
         customer.deactivate();
 
         expect(customer.isActive()).toBe(false);
+    })
+
+    it("should add and spend rewards points", () => {
+        const customer = new Customer(getId(), "matheus", "12345678910")
+
+        expect(customer.rewardPoints).toBe(0);
+
+        customer.addRewardPoints(10);
+        expect(customer.rewardPoints).toBe(10);
+
+        customer.addRewardPoints(10);
+        expect(customer.rewardPoints).toBe(20);
+
+        customer.spendRewardPoints(5);
+        expect(customer.rewardPoints).toBe(15);
     })
 })
