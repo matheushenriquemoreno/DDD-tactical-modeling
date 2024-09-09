@@ -26,7 +26,7 @@ describe("Customer unit Testes", () => {
 
         customer.changeName("Matheus Henrique")
 
-        expect(customer.Name).toBe("Matheus Henrique")
+        expect(customer.name).toBe("Matheus Henrique")
     })
 
     it("Should activate customer", () => {

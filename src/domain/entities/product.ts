@@ -11,23 +11,27 @@ export default class Product {
     }
 
     validate() {
-        if(this._id.length === 0){
+        if (this._id.length === 0) {
             throw new Error("Id is required");
         }
-        if(this._name.length === 0){
+        if (this._name.length === 0) {
             throw new Error("Name is required");
         }
-        if(this._price < 0){
+        if (this._price < 0) {
             throw new Error("Price must be greater than zero");
         }
     }
 
-    get name() : string {
+    get name(): string {
         return this._name;
     }
 
-    get price() : number {
+    get price(): number {
         return this._price;
+    }
+
+    get id(): string {
+        return this._id;
     }
 
     changeName(name: string) {
