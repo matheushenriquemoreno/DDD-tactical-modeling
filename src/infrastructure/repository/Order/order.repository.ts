@@ -44,7 +44,6 @@ export default class OrderRepository implements OrderRepositoryInterface {
         return models.map(order => this.getOrderEntity(order))
     }
 
-
     private getOrderEntity(model: OrderModel){
         return new Order(model.id, model.customer_id, model.items.map((item) => {
             return new OrderItem(item.id, item.name, item.price, item.product_id, item.quantity)
